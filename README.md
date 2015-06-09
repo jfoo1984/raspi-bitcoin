@@ -1,7 +1,7 @@
 # raspi-bitcoin
 This project contains scripts and other things I used to set up and maintain a raspi powered antminer U3.
 
-#cgmon script
+# cgmon script
 Original description: https://bitcointalk.org/index.php?topic=353436.0
 Original link: https://bitcointalk.org/index.php?topic=353436.0
 
