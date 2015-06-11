@@ -19,13 +19,12 @@
 # GPU settings
 set conf(cgminer_gpu_options) ""
 
-# TODO: break out conf file setting and put a check to set it
-# configuration file for miner executable
-set conf(miner_conf) ""
+# flag and location of configuration file for miner executable (e.g. -c /home/pi/.cgminer/cgminer.conf)
+set conf(miner_conf_file) ""
 
 # Extra options to pass to cgminer
 # At least --api-listen is required for cgmon to work.
-set conf(cgminer_extra_options) "--api-listen  --bmsc-options 115200:0.57 -c /home/pi/.cgminer/cgminer.conf --bmsc-voltage 0800 --bmsc-freq 1286"
+set conf(cgminer_extra_options) "--api-listen  --bmsc-options 115200:0.57 --bmsc-voltage 0800 --bmsc-freq 1286 "
 
 # Username running X server (i.e. the username you use when logging into the Linux graphical interface)
 # This must be correct or cgminer wont run properly.
@@ -242,7 +241,7 @@ global hostname pool conf
 		if {[info exists pool(address4)] && $pool(address4) != ""} {append mining_command " -o $pool(address4) -u $pool(user4) -p $pool(pass4) "}
 		if {[info exists pool(address5)] && $pool(address5) != ""} {append mining_command " -o $pool(address5) -u $pool(user5) -p $pool(pass5) "}
  		
- 		append mining_command " $conf(cgminer_gpu_options)"
+ 		append mining_command " $conf(miner_conf_file)" " $conf(cgminer_gpu_options)"
  		
 		notice $mining_command
 
